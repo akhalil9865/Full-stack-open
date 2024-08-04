@@ -39,11 +39,31 @@ const App = () => {
         <Button content={"neutral"} handle={handleNeutral} />
         <Button content={"bad"} handle={handleBad} />
         <h2>statistics</h2> <Stat content={"good"} count={good} />
-        <Stat content={"neutral"} count={neutral} />
-        <Stat content={"bad"} count={bad} />
-        <Stat content={"all"} count={good + neutral + bad} />
-        <Stat content={"average"} count={good + bad * -1} />
-        <Stat content={"positive"} count={good / (good + neutral + bad || 1)} />
+        <table>
+          <tr>
+            {" "}
+            <Stat content={"neutral"} count={neutral} />
+          </tr>
+          <tr>
+            {" "}
+            <Stat content={"bad"} count={bad} />
+          </tr>
+          <tr>
+            {" "}
+            <Stat content={"all"} count={good + neutral + bad} />
+          </tr>
+          <tr>
+            {" "}
+            <Stat content={"average"} count={good + bad * -1} />
+          </tr>
+          <tr>
+            {" "}
+            <Stat
+              content={"positive"}
+              count={good / (good + neutral + bad || 1)}
+            />
+          </tr>
+        </table>
       </>
     );
   }

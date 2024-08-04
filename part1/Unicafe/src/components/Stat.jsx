@@ -1,7 +1,8 @@
 export const Stat = ({ content, count }) => {
   return (
-    <div>
-      {content}: {count}
-    </div>
+    <>
+      <td> {content}:</td>
+      <td> {count}</td>
+    </>
   );
 };
