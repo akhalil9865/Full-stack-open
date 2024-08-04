@@ -17,21 +17,36 @@ const App = () => {
   const handleBad = () => {
     setBad(bad + 1);
   };
-  return (
-    <>
-      <h1>give feedback</h1>
-      <Button content={"good"} handle={handleGood} />
-      <Button content={"neutral"} handle={handleNeutral} />
-      <Button content={"bad"} handle={handleBad} />
-      <h2>statistics</h2>
-      <Stat content={"good"} count={good} />
-      <Stat content={"neutral"} count={neutral} />
-      <Stat content={"bad"} count={bad} />
-      <Stat content={"all"} count={good + neutral + bad} />
-      <Stat content={"average"} count={good + bad * -1} />
-      <Stat content={"positive"} count={good / (good + neutral + bad || 1)} />
-    </>
-  );
+
+  if (good + neutral + bad === 0) {
+    return (
+      <>
+        <h1>give feedback</h1>
+        <Button content={"good"} handle={handleGood} />
+        <Button content={"neutral"} handle={handleNeutral} />
+        <Button content={"bad"} handle={handleBad} />
+        <h2>statistics</h2>
+
+        <div>no feedback count</div>
+      </>
+    );
+  } else {
+    return (
+      <>
+        {" "}
+        <h1>give feedback</h1>
+        <Button content={"good"} handle={handleGood} />
+        <Button content={"neutral"} handle={handleNeutral} />
+        <Button content={"bad"} handle={handleBad} />
+        <h2>statistics</h2> <Stat content={"good"} count={good} />
+        <Stat content={"neutral"} count={neutral} />
+        <Stat content={"bad"} count={bad} />
+        <Stat content={"all"} count={good + neutral + bad} />
+        <Stat content={"average"} count={good + bad * -1} />
+        <Stat content={"positive"} count={good / (good + neutral + bad || 1)} />
+      </>
+    );
+  }
 };
 
 export default App;
