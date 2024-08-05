@@ -41,12 +41,26 @@ const App = () => {
 
     setVotes(x);
   };
+  let sortable = [];
+  for (var vehicle in votes) {
+    sortable.push([vehicle, votes[vehicle]]);
+  }
+
+  sortable.sort(function (a, b) {
+    return a[1] - b[1];
+  });
+  console.log(sortable);
+
   return (
     <>
       <div>{anecdotes[selected]}</div>
       <div>has {votes[selected]} votes </div>
       <button onClick={handleVote}>vote</button>
       <button onClick={handleClick}>next anecdote</button>
+      <h1>anecdotes with the most votes</h1>
+      <div>
+        {sortable[7][1]}:{anecdotes[sortable[7][0]]}
+      </div>
     </>
   );
 };
